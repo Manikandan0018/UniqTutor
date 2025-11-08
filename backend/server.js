@@ -11,10 +11,11 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL,
+    origin: ["http://localhost:5173", "https://uniq-tutor.vercel.app"],
     credentials: true,
   })
 );
+
 
 mongoose
   .connect(process.env.MONGO_URI)
