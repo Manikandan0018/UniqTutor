@@ -10,7 +10,11 @@ export default function Admin() {
   const handleStart = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_URL}/sessions/create`, { method: "POST" });
+      const res = await fetch(`${API_URL}/sessions/create`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+      });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
       setSession(data.session);
