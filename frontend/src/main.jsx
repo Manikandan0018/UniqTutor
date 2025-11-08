@@ -9,7 +9,7 @@ import "./index.css";
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Routes>
+      <Routes basename="/">
         <Route path="/" element={<App />}>
           <Route index element={<Admin />} />
           <Route path="session/:unique_id" element={<SessionPage />} />
