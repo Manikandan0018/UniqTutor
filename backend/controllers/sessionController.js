@@ -7,7 +7,7 @@ export const createSession = async (req, res) => {
     const unique_id = uuidv4();
     const userurl = `${process.env.FRONTEND_URL}/session/${unique_id}`;
 
-    console.log("👉 Creating new session with URL:", userurl);
+    console.log("👉 Creating new session:", { type, unique_id, userurl });
 
     const newSession = new LiveSession({ type, unique_id, userurl });
     await newSession.save();
@@ -21,6 +21,7 @@ export const createSession = async (req, res) => {
     res.status(500).json({ message: "Server error", error: err.message });
   }
 };
+
 
 
 export const getSession = async (req, res) => {
